@@ -84,7 +84,7 @@ const Register = ({ setShowing }) => {
           >
             Sign In
           </button>
-          <button onClick={() => setShowing(false)}>
+          <button className="switchbtn" onClick={() => setShowing(false)}>
             Already have an account? Click here to log in!
           </button>
         </form>

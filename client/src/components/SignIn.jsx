@@ -18,7 +18,7 @@ const SignIn = ({ setUser, setShowing }) => {
     const payload = await SignInUser(formValues)
     setFormValues(initialState)
     setUser(payload)
-    navigate('/feed')
+    navigate('/patient-profile')
   }
 
   return (
@@ -49,7 +49,7 @@ const SignIn = ({ setUser, setShowing }) => {
           <button disabled={!formValues.email || !formValues.password}>
             Sign In
           </button>
-          <button onClick={() => setShowing(true)}>
+          <button className="switchbtn" onClick={() => setShowing(true)}>
             Don't have an account? Click here to make one!
           </button>
         </form>
