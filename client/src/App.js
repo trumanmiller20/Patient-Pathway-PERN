@@ -1,10 +1,10 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import PatientInfo from './components/PatientInfo'
-import Nav from './components/Nav'
-import Welcome from './components/Welcome'
-import SignIn from './components/SignIn'
-import Register from './components/Register'
+import "./App.css"
+import { Routes, Route } from "react-router-dom"
+import PatientInfo from "./components/PatientInfo"
+import Nav from "./components/Nav"
+import Welcome from "./components/Welcome"
+import SignIn from "./components/SignIn"
+import Register from "./components/Register"
 
 const App = () => {
   return (
