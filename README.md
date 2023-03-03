@@ -21,7 +21,7 @@
 | :--------------: | :--------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------: |
 | Brandon Partrick | [<img src="https://cdn.iconscout.com/icon/free/png-256/github-3089487-2567439.png" width="20%" />]() | [<img src="https://cdn-icons-png.flaticon.com/512/179/179330.png" width="10%" height="10%" />]() |
 |  Joshua Jumelet  | [<img src="https://cdn.iconscout.com/icon/free/png-256/github-3089487-2567439.png" width="20%" />]() | [<img src="https://cdn-icons-png.flaticon.com/512/179/179330.png" width="10%" height="10%" />]() |
-| Hatice Yorukoglu | [<img src="https://cdn.iconscout.com/icon/free/png-256/github-3089487-2567439.png" width="20%" />]() | [<img src="https://cdn-icons-png.flaticon.com/512/179/179330.png" width="10%" height="10%" />]() |
+| Hatice Yorukoglu |                                   [https://github.com/hatuceka]()                                    |                   [https://www.linkedin.com/in/hatice-yorukoglu-558605260/]()                    |
 |  Truman Miller   | [<img src="https://cdn.iconscout.com/icon/free/png-256/github-3089487-2567439.png" width="20%" />]() | [<img src="https://cdn-icons-png.flaticon.com/512/179/179330.png" width="10%" height="10%" />]() |
 
 ---
