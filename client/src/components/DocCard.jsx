@@ -1,7 +1,7 @@
 const DocCard = () => {
   return (
     <div>
-      <div className="infocontainer">
+      <div className="doctorinfocontainer">
         <img
           className="doctorpic"
           src="https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"

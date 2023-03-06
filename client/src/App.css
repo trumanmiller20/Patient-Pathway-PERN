@@ -1,10 +1,12 @@
 #root {
-  margin: 0
+  margin: 0;
+  background-color: rgb(199, 197, 197);
 }
 
 .App {
   text-align: center;
 }
+
 
 .navsection{
   background-color: rgba(0, 170, 170, 0.504);
@@ -14,8 +16,13 @@
 }
 
 .patientprofile {
-margin: 10px 20px;
-display: flex;
+  margin: 10px 20px;
+  display: flex;
+}
+
+.patientinfocontainer{
+  background-color:rgba(220, 20, 60, 0.564);
+  margin: 10px;
 }
 
 .patientpic{
@@ -25,9 +32,44 @@ display: flex;
   border-radius: 50px;
 }
 
+.doctors{
+  display: flex;
+  justify-content: space-evenly
+}
+
+.doctorinfocontainer{
+background-color:rgba(255, 105, 180, 0.335);
+  margin: 10px;
+}
+
+.search{
+  height: 10vh;
+  width: 10vw;
+  background-color: orange;
+  margin: 10px;
+  padding: 10px;
+}
+
 .doctorpic{
   width: 20%;
   height: 20%;
+  border: solid black 2px;
+  border-radius: 50px;
+}
+
+.doctordetailssection{
+  display: flex;
+  flex-direction: row
+}
+
+.docinfo{
+  height:100%;
+  width:40%
+}
+
+.detaildoctorpic{
+  width: 40%;
+  height: 40%;
   border: solid black 2px;
   border-radius: 50px;
 }
