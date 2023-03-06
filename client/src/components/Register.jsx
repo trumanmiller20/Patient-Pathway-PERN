@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { RegisterUser } from '../services/Auth'
+import { RegisterPatient } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
 const Register = ({ setShowing }) => {
@@ -19,7 +19,7 @@ const Register = ({ setShowing }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await RegisterUser({
+    await RegisterPatient({
       name: formValues.name,
       email: formValues.email,
       password: formValues.password

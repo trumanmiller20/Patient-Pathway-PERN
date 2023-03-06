@@ -1,6 +1,6 @@
 import PatientInfo from './PatientInfo'
 import ApptCard from './ApptCard'
-import SignOut from './SignOut'
+import { Link } from 'react-router-dom'
 
 const PatientProfile = () => {
   return (
@@ -8,7 +8,8 @@ const PatientProfile = () => {
       <h2>Welcome Back!</h2>
       <PatientInfo />
       <ApptCard />
-      <SignOut />
+      <Link to="/makeappt">New Appointment</Link>
+      <Link to="/">Sign Out</Link>
     </div>
   )
 }
