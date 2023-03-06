@@ -2,16 +2,16 @@ import { useState } from 'react'
 import { RegisterPatient } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const Register = ({ setShowing }) => {
+const Register = () => {
   let navigate = useNavigate()
 
-  const initialState = {
-    name: '',
+  const [formValues, setFormValues] = useState({
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     confirmPassword: ''
-  }
-  const [formValues, setFormValues] = useState(initialState)
+  })
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -20,11 +20,18 @@ const Register = ({ setShowing }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterPatient({
-      name: formValues.name,
+      firstName: formValues.firstName,
+      lastName: formValues.lastName,
       email: formValues.email,
       password: formValues.password
     })
-    setFormValues(initialState)
+    setFormValues({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    })
     navigate('/signin')
   }
 
@@ -33,13 +40,24 @@ const Register = ({ setShowing }) => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="firstName">First Name</label>
             <input
               onChange={handleChange}
-              name="name"
+              name="firstName"
               type="text"
-              placeholder="John Smith"
-              value={formValues.name}
+              placeholder="John"
+              value={formValues.firstName}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              onChange={handleChange}
+              name="lastName"
+              type="text"
+              placeholder="Smith"
+              value={formValues.lastName}
               required
             />
           </div>
@@ -82,10 +100,7 @@ const Register = ({ setShowing }) => {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Sign Up
-          </button>
-          <button className="switchbtn" onClick={() => setShowing(false)}>
-            Already have an account? Click here to log in!
+            Sign In
           </button>
         </form>
       </div>

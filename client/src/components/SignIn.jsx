@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { SignInPatient } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const SignIn = ({ setUser, setShowing }) => {
+const SignIn = ({ setPatient, setShowing }) => {
   let navigate = useNavigate()
 
   const initialState = { email: '', password: '' }
@@ -17,7 +17,7 @@ const SignIn = ({ setUser, setShowing }) => {
     e.preventDefault()
     const payload = await SignInPatient(formValues)
     setFormValues(initialState)
-    setUser(payload)
+    setPatient(payload)
     navigate('/patient-profile')
   }
 

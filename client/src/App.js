@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import SignIn from './components/SignIn'
@@ -10,15 +10,28 @@ import PatientProfile from './pages/PatientProfile'
 import About from './pages/About'
 import Doctors from './pages/Doctors'
 import DocProfile from './pages/DocProfile'
+import { CheckSession } from './services/Auth'
 
 const App = () => {
   const [patient, setPatient] = useState(null)
+
+  const checkToken = async () => {
+    const patient = await CheckSession
+    setPatient(patient)
+  }
 
   const handleLogOut = () => {
     setPatient(null)
     // toggleAuthenticated(false)
     localStorage.clear()
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   return (
     <div className="App">
