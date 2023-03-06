@@ -4,6 +4,7 @@ export const SignInPatient = async (data) => {
   try {
     const res = await Patient.post('api/patients/login', data)
     // Set the current signed in users token to localStorage
+    localStorage.setItem('token', res.data.token)
     return res.data.patient
   } catch (error) {
     throw error
@@ -13,7 +14,7 @@ export const SignInPatient = async (data) => {
 export const RegisterPatient = async (data) => {
   try {
     const res = await Patient.post('api/patients/register', data)
-    return res.data.patient
+    return res.data
   } catch (error) {
     throw error
   }
