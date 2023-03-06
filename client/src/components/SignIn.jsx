@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SignInUser } from '../services/Auth'
+import { SignInPatient } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
 const SignIn = ({ setUser, setShowing }) => {
@@ -15,7 +15,7 @@ const SignIn = ({ setUser, setShowing }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await SignInUser(formValues)
+    const payload = await SignInPatient(formValues)
     setFormValues(initialState)
     setUser(payload)
     navigate('/patient-profile')
