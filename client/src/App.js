@@ -2,12 +2,14 @@ import './App.css'
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
-import Welcome from './components/Welcome'
 import SignIn from './components/SignIn'
 import Register from './components/Register'
-import PatientProfile from './components/PatientProfile'
-import About from './components/About'
-import MakeAppt from './components/MakeAppt'
+import MakeAppt from './pages/MakeAppt'
+import Welcome from './pages/Welcome'
+import PatientProfile from './pages/PatientProfile'
+import About from './pages/About'
+import Doctors from './pages/Doctors'
+import DocProfile from './pages/DocProfile'
 
 const App = () => {
   const [patient, setPatient] = useState(null)
@@ -30,7 +32,7 @@ const App = () => {
         ></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route
-          path="/"
+          path="/patient-profile"
           element={
             <PatientProfile
               handleLogOut={handleLogOut}
@@ -40,6 +42,8 @@ const App = () => {
           }
         ></Route>
         <Route path="/makeappt" element={<MakeAppt />}></Route>
+        <Route path="/doctors" element={<Doctors />}></Route>
+        <Route path="/doctors/:doctor_id" element={<DocProfile />}></Route>
       </Routes>
     </div>
   )

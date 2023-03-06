@@ -8,6 +8,7 @@ const PatientInfo = () => {
           alt="patient pic"
         />
         <div className="patientname">Billy</div>
+        <div className="insurance">Insurance: Blue Cross Blue Shield</div>
       </div>
     </div>
   )

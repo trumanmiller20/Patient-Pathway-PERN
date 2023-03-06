@@ -2,12 +2,10 @@ const ApptCard = () => {
   return (
     <div>
       <div className="infocontainer">
-        <ul>
-          <strong>Upcoming Appointments:</strong>
-          <li>General Checkup with Dr. Strange at 3pm on March 12, 2023</li>
-          <li>Flu Shot with Dr. Quack at 2pm on March 31st 2023</li>
-          <li>Consultation with Dr. Patient at 8am on June 23rd 2023</li>
-        </ul>
+        <h3>Annual Checkup</h3>
+        <p>With: Dr. Blake</p>
+        <p>On: 12:00pm, February 23rd 2023</p>
+        <p>At: Midtown Medical Center</p>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
-import SignIn from './SignIn'
-import Register from './Register'
+import SignIn from '../components/SignIn'
+import Register from '../components/Register'
 import { useState, useEffect } from 'react'
 
 const Welcome = () => {

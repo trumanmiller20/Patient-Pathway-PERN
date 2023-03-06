@@ -1,5 +1,5 @@
-import PatientInfo from './PatientInfo'
-import ApptCard from './ApptCard'
+import PatientInfo from '../components/PatientInfo'
+import ApptCard from '../components/ApptCard'
 import { Link } from 'react-router-dom'
 
 const PatientProfile = () => {

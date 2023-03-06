@@ -17,7 +17,17 @@
 margin: 10px 20px;
 display: flex;
 }
+
 .patientpic{
+  width: 40%;
+  height: 40%;
+  border: solid black 2px;
+  border-radius: 50px;
+}
+
+.doctorpic{
   width: 20%;
   height: 20%;
+  border: solid black 2px;
+  border-radius: 50px;
 }
