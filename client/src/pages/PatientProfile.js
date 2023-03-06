@@ -12,6 +12,7 @@ const PatientProfile = () => {
       <div className="upcominginfo">
         <ApptCard />
         <Link to="/makeappt">New Appointment</Link>
+        <br></br>
         <Link to="/">Sign Out</Link>
       </div>
     </div>
