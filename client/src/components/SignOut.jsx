@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
+
 const SignOut = () => {
   return (
     <div>
-      <button className="signoutbtn">Sign Out</button>
+      <Link to="/">Sign Out</Link>
     </div>
   )
 }

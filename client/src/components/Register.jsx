@@ -82,7 +82,7 @@ const Register = ({ setShowing }) => {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Sign In
+            Sign Up
           </button>
           <button className="switchbtn" onClick={() => setShowing(false)}>
             Already have an account? Click here to log in!

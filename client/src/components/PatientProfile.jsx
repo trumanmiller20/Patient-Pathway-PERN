@@ -4,7 +4,7 @@ import SignOut from './SignOut'
 
 const PatientProfile = () => {
   return (
-    <div>
+    <div className="patientprofile">
       <h2>Welcome Back!</h2>
       <PatientInfo />
       <ApptCard />
