@@ -18,7 +18,7 @@ const App = () => {
   const [showing, setShowing] = useState(false)
 
   const checkToken = async () => {
-    const patient = await CheckSession
+    const patient = await CheckSession()
     setPatient(patient)
   }
 
@@ -39,7 +39,16 @@ const App = () => {
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/" element={<Welcome showing={showing} />}></Route>
+        <Route
+          path="/"
+          element={
+            <Welcome
+              showing={showing}
+              setShowing={setShowing}
+              setPatient={setPatient}
+            />
+          }
+        ></Route>
         <Route path="/about" element={<About />}></Route>
         <Route
           path="/sign-in"
