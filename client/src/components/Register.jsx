@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { RegisterPatient } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const Register = () => {
+const Register = ({ setShowing }) => {
   let navigate = useNavigate()
 
   let initialState = {
@@ -36,7 +36,7 @@ const Register = () => {
       password: formValues.password
     })
     setFormValues(initialState)
-    navigate('/signin')
+    navigate('/sign-in')
   }
 
   return (
@@ -149,6 +149,9 @@ const Register = () => {
             }
           >
             Sign In
+          </button>
+          <button className="switchbtn" onClick={() => setShowing(false)}>
+            Already have an account? Click here to Sign In!
           </button>
         </form>
       </div>
