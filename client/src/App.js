@@ -41,13 +41,7 @@ const App = () => {
         <Route path="/about" element={<About />}></Route>
         <Route
           path="/sign-in"
-          // element={<SignIn setPatient={() => console.log('whaeveryouwant')} />}
-          element={
-            <SignIn
-              hello={() => console.log('whaeveryouwant')}
-              setPatient={setPatient}
-            />
-          }
+          element={<SignIn setPatient={setPatient} />}
         ></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route
