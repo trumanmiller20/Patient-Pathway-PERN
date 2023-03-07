@@ -1,9 +1,9 @@
 import Patient from './api'
 
 export const SignInPatient = async (data) => {
+  console.log('frankenstein boogie', data)
   try {
     const res = await Patient.post('api/patients/login', data)
-    // Set the current signed in users token to localStorage
     localStorage.setItem('token', res.data.token)
     return res.data.patient
   } catch (error) {
