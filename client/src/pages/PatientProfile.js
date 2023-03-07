@@ -1,8 +1,32 @@
 import PatientInfo from '../components/PatientInfo'
 import ApptCard from '../components/ApptCard'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../services/api'
 
-const PatientProfile = () => {
+const PatientProfile = ({
+  allPatients,
+  allDoctors,
+  allAppointments,
+  patient,
+  handleLogOut
+}) => {
+  const [thisPatient, setThisPatient] = useState([])
+
+  const GetPatientDetails = async () => {
+    const res = await axios.get(
+      `${BASE_URL}/api/patients/details/${patient.id}`
+    )
+    setThisPatient(res.data)
+    console.log(patient.id)
+  }
+
+  useEffect(() => {
+    GetPatientDetails()
+    console.log(thisPatient)
+  }, [])
+
   return (
     <div className="patientprofile">
       <div className="welcomesection">
@@ -13,8 +37,8 @@ const PatientProfile = () => {
         <ApptCard />
         <Link to="/makeappt">New Appointment</Link>
         <br></br>
-        <Link to="/">Sign Out</Link>
       </div>
+      <button onClick={handleLogOut}>Sign Out</button>
     </div>
   )
 }
