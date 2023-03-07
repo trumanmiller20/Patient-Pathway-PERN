@@ -5,13 +5,19 @@ import { useNavigate } from 'react-router-dom'
 const Register = () => {
   let navigate = useNavigate()
 
-  const [formValues, setFormValues] = useState({
+  let initialState = {
     firstName: '',
     lastName: '',
+    profile_img: '',
+    insurance: '',
+    date_of_birth: '',
+    state: '',
     email: '',
     password: '',
     confirmPassword: ''
-  })
+  }
+
+  const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -22,16 +28,14 @@ const Register = () => {
     await RegisterPatient({
       firstName: formValues.firstName,
       lastName: formValues.lastName,
+      profile_img: formValues.profile_img,
+      insurance: formValues.insurance,
+      date_of_birth: formValues.date_of_birth,
+      state: formValues.state,
       email: formValues.email,
       password: formValues.password
     })
-    setFormValues({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    })
+    setFormValues(initialState)
     navigate('/signin')
   }
 
@@ -58,6 +62,50 @@ const Register = () => {
               type="text"
               placeholder="Smith"
               value={formValues.lastName}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="profile_img">Profile Image</label>
+            <input
+              onChange={handleChange}
+              name="profile_img"
+              type="text"
+              placeholder="myprofilepic.jpeg"
+              value={formValues.profile_img}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="insurance">Insurance</label>
+            <input
+              onChange={handleChange}
+              name="insurance"
+              type="text"
+              placeholder="Blue Cross Blue Shield"
+              value={formValues.insurance}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="date_of_birth">Date of Birth</label>
+            <input
+              onChange={handleChange}
+              name="date_of_birth"
+              type="text"
+              placeholder="02/20/1994"
+              value={formValues.date_of_birth}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="state">State</label>
+            <input
+              onChange={handleChange}
+              name="state"
+              type="text"
+              placeholder="GA"
+              value={formValues.state}
               required
             />
           </div>
