@@ -15,6 +15,8 @@ import { CheckSession } from './services/Auth'
 const App = () => {
   const [patient, setPatient] = useState(null)
 
+  const [showing, setShowing] = useState(false)
+
   const checkToken = async () => {
     const patient = await CheckSession
     setPatient(patient)
@@ -37,19 +39,16 @@ const App = () => {
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/" element={<Welcome />}></Route>
+        <Route path="/" element={<Welcome showing={showing} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route
           path="/sign-in"
-          // element={<SignIn setPatient={() => console.log('whaeveryouwant')} />}
-          element={
-            <SignIn
-              hello={() => console.log('whaeveryouwant')}
-              setPatient={setPatient}
-            />
-          }
+          element={<SignIn setPatient={setPatient} setShowing={setShowing} />}
         ></Route>
-        <Route path="/register" element={<Register />}></Route>
+        <Route
+          path="/register"
+          element={<Register setShowing={setShowing} />}
+        ></Route>
         <Route
           path="/patient-profile"
           element={
