@@ -18,9 +18,9 @@ const PatientProfile = ({
     const res = await axios.get(
       `${BASE_URL}/api/patients/details/${patient.id}`
     )
-    setThisPatient(res.data)
     console.log(patient.id)
     console.log(res.data)
+    setThisPatient(res.data)
   }
 
   useEffect(() => {
