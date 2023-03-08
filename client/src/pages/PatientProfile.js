@@ -24,14 +24,16 @@ const PatientProfile = ({
   }
 
   useEffect(() => {
-    GetPatientDetails()
-  }, [])
+    if (patient) {
+      GetPatientDetails()
+    }
+  }, [patient])
   console.log(thisPatient)
 
   return (
     <div className="patientprofile">
       <div className="welcomesection">
-        <h2>Welcome Back {thisPatient.firstName}!</h2>
+        <h2>Welcome Back {thisPatient?.firstName}!</h2>
         <PatientInfo thisPatient={thisPatient} />
       </div>
       <div className="upcominginfo">
