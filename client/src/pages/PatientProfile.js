@@ -18,8 +18,6 @@ const PatientProfile = ({
     const res = await axios.get(
       `${BASE_URL}/api/patients/details/${patient.id}`
     )
-    console.log(patient.id)
-    console.log(res.data)
     setThisPatient(res.data)
   }
 
@@ -28,7 +26,6 @@ const PatientProfile = ({
       GetPatientDetails()
     }
   }, [patient])
-  console.log(thisPatient)
 
   return (
     <div className="patientprofile">
