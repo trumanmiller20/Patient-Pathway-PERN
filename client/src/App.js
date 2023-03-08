@@ -31,13 +31,11 @@ const App = () => {
 
   const GetPatients = async () => {
     const res = await axios.get(`${BASE_URL}/api/patients`)
-    console.log(res.data)
     setAllPatients(res.data)
   }
 
   const GetDoctors = async () => {
     const res = await axios.get(`${BASE_URL}/api/doctors`)
-    console.log(...res.data)
     setAllDoctors(res.data)
   }
 

@@ -24,7 +24,6 @@ export const RegisterPatient = async (data) => {
 export const CheckSession = async () => {
   try {
     // Checks if the current token if it exists is valid
-    console.log('hello')
     const res = await Patient.get('/api/patients/session')
     return res.data
   } catch (error) {
