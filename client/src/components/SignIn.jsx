@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { SignInPatient } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const SignIn = ({ setPatient, setShowing }) => {
+const SignIn = ({ showing, setPatient, setShowing }) => {
   let navigate = useNavigate()
 
   const initialState = { email: '', password: '' }
@@ -10,12 +10,14 @@ const SignIn = ({ setPatient, setShowing }) => {
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
+    e.preventDefault()
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInPatient(formValues)
+    console.log(payload)
     setFormValues(initialState)
     setPatient(payload)
     navigate('/patient-profile')
