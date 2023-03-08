@@ -2,26 +2,48 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../services/api'
-import DocCard from '../components/DocCard'
+// import DocCard from '../components/DocCard'
 
-const DocProfile = () => {
+const DocProfile = ({ allDoctors }) => {
+  console.log(allDoctors)
+  let { doctor_id } = useParams()
+  const [doctors, setDoctors] = useState({})
+
+  const doctorDetails = allDoctors.find((doctor) => {
+    return doctor.id === parseInt(doctor_id)
+  })
+  console.log(doctorDetails)
+
+  // const GetDoctorDetails = async () => {
+  //   const res = await axios.get(`${BASE_URL}/api/doctors/${id}`)
+  //   console.log(res)
+  //   setDoctor(res.data)
+  // }
+
+  useEffect(() => {
+    setDoctors(doctorDetails)
+  }, [allDoctors])
+
   return (
     <div className="doctordetailssection">
       <div className="docinfo">
         <img
           className="detaildoctorpic"
-          src="https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src={doctors.profile_img}
+          alt="doctorpic"
         />
-        <p>Dr. Desmond Blake</p>
-        <p>General Practice, Orthopedics</p>
-        <p>Midtown Medical Center</p>
-        <p>Atlanta, GA</p>
-        <p>Blue Cross Blue Shield</p>
+        <p>
+          Dr. {doctors.firstName} {doctors.lastName}
+        </p>
+        <p>{doctors.specialty}</p>
+        <p>{doctors.clinicName}</p>
+        <p>{doctors.state}</p>
+        <p>{doctors.network}</p>
       </div>
-      <div className="apptinfo">
+      {/* <div className="apptinfo">
         <Link to="/makeappt">Appointment Request goes here</Link>
         <Link to="/doctors">Return To Doctors List</Link>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -25,7 +25,7 @@ const App = () => {
 
   const [allAppointments, setAllAppointments] = useState(null)
 
-  const [allDoctors, setAllDoctors] = useState(null)
+  const [allDoctors, setAllDoctors] = useState({})
 
   const [showing, setShowing] = useState(false)
 
@@ -37,7 +37,7 @@ const App = () => {
 
   const GetDoctors = async () => {
     const res = await axios.get(`${BASE_URL}/api/doctors`)
-    console.log(res.data)
+    console.log(...res.data)
     setAllDoctors(res.data)
   }
 
@@ -112,9 +112,7 @@ const App = () => {
         ></Route>
         <Route
           path="/doctors"
-          element={
-            <Doctors allPatients={allPatients} allDoctors={allDoctors} />
-          }
+          element={<Doctors allDoctors={allDoctors} />}
         ></Route>
         <Route
           path="/doctors/:doctor_id"
