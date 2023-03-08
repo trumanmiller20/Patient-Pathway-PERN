@@ -12,7 +12,7 @@ const PatientProfile = ({
   patient,
   handleLogOut
 }) => {
-  const [thisPatient, setThisPatient] = useState([])
+  const [thisPatient, setThisPatient] = useState({})
 
   const GetPatientDetails = async () => {
     const res = await axios.get(
@@ -20,17 +20,18 @@ const PatientProfile = ({
     )
     setThisPatient(res.data)
     console.log(patient.id)
+    console.log(res.data)
   }
 
   useEffect(() => {
     GetPatientDetails()
-    console.log(thisPatient)
   }, [])
+  console.log(thisPatient)
 
   return (
     <div className="patientprofile">
       <div className="welcomesection">
-        <h2>Welcome Back!</h2>
+        <h2>Welcome Back {thisPatient.firstName}!</h2>
         <PatientInfo />
       </div>
       <div className="upcominginfo">
