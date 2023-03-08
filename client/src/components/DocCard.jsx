@@ -1,18 +1,20 @@
-const DocCard = () => {
+import { Link } from 'react-router-dom'
+// import DocProfile from '../pages/DocProfile'
+
+const DocCard = (props) => {
   return (
     <div>
+      <Link to={`/doctors/${props.id}`} >
       <div className="doctorinfocontainer">
         <img
           className="doctorpic"
-          src="https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src={props.profile_img}
           alt="doctor pic"
         />
-        <div className="doctorname">Dr. Desmond Blake</div>
-        <div className="doctorpractice">General Pratice</div>
-        <div className="insurance">
-          Insurance Providers Accepted: Blue Cross Blue Shield
-        </div>
+        <div className="doctorname">Dr. {props.firstName} {props.lastName}</div>
+        <div className="doctorspecialty">{props.specialty}</div>
       </div>
+      </Link>
     </div>
   )
 }
