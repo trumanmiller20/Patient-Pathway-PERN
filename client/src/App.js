@@ -11,11 +11,40 @@ import About from './pages/About'
 import Doctors from './pages/Doctors'
 import DocProfile from './pages/DocProfile'
 import { CheckSession } from './services/Auth'
+import axios from 'axios'
+import Patient from './services/api'
+import { BASE_URL } from './services/api'
+import { useNavigate } from 'react-router-dom'
 
 const App = () => {
+  let navigate = useNavigate()
+
   const [patient, setPatient] = useState(null)
 
+  const [allPatients, setAllPatients] = useState(null)
+
+  const [allAppointments, setAllAppointments] = useState(null)
+
+  const [allDoctors, setAllDoctors] = useState(null)
+
   const [showing, setShowing] = useState(false)
+
+  const GetPatients = async () => {
+    const res = await axios.get(`${BASE_URL}/api/patients`)
+    console.log(res.data)
+    setAllPatients(res.data)
+  }
+
+  const GetDoctors = async () => {
+    const res = await axios.get(`${BASE_URL}/api/doctors`)
+    console.log(res.data)
+    setAllDoctors(res.data)
+  }
+
+  const GetAppointments = async () => {
+    const res = await axios.get(`${BASE_URL}/api/appointments`)
+    setAllAppointments(res.data)
+  }
 
   const checkToken = async () => {
     const patient = await CheckSession()
@@ -26,6 +55,7 @@ const App = () => {
     setPatient(null)
     // toggleAuthenticated(false)
     localStorage.clear()
+    navigate('/')
   }
 
   useEffect(() => {
@@ -33,6 +63,9 @@ const App = () => {
     if (token) {
       checkToken()
     }
+    GetPatients()
+    GetDoctors()
+    GetAppointments()
   }, [])
 
   return (
@@ -64,13 +97,31 @@ const App = () => {
             <PatientProfile
               handleLogOut={handleLogOut}
               patient={patient}
+              allPatients={allPatients}
+              allDoctors={allDoctors}
+              allAppointments={allAppointments}
               // authenticated={authenticated}
             />
           }
         ></Route>
-        <Route path="/makeappt" element={<MakeAppt />}></Route>
-        <Route path="/doctors" element={<Doctors />}></Route>
-        <Route path="/doctors/:doctor_id" element={<DocProfile />}></Route>
+        <Route
+          path="/makeappt"
+          element={
+            <MakeAppt allPatients={allPatients} allDoctors={allDoctors} />
+          }
+        ></Route>
+        <Route
+          path="/doctors"
+          element={
+            <Doctors allPatients={allPatients} allDoctors={allDoctors} />
+          }
+        ></Route>
+        <Route
+          path="/doctors/:doctor_id"
+          element={
+            <DocProfile allPatients={allPatients} allDoctors={allDoctors} />
+          }
+        ></Route>
       </Routes>
     </div>
   )
