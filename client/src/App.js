@@ -37,6 +37,7 @@ const App = () => {
 
   const GetDoctors = async () => {
     const res = await axios.get(`${BASE_URL}/api/doctors`)
+    console.log(res.data)
     setAllDoctors(res.data)
   }
 
