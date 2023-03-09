@@ -9,6 +9,7 @@ import PatientProfile from './pages/PatientProfile'
 import About from './pages/About'
 import Doctors from './pages/Doctors'
 import DocProfile from './pages/DocProfile'
+import EditAppt from './components/EditAppt'
 import { CheckSession } from './services/Auth'
 import axios from 'axios'
 import Patient from './services/api'
@@ -109,6 +110,16 @@ const App = () => {
           path="/doctors/:doctor_id"
           element={
             <DocProfile
+              allPatients={allPatients}
+              patient={patient}
+              allDoctors={allDoctors}
+            />
+          }
+        ></Route>
+        <Route
+          path="/update/:id"
+          element={
+            <EditAppt
               allPatients={allPatients}
               patient={patient}
               allDoctors={allDoctors}
