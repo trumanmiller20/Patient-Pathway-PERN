@@ -4,6 +4,12 @@ import { BASE_URL } from '../services/api'
 
 const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
   const [patientAppts, setPatientAppts] = useState({})
+  const [updated, setUpdated] = useState(false)
+  const [edit, setEdit] = useState({
+    visit_reason: '',
+    date: '',
+    time: ''
+  })
 
   const getAppointmentsByPatient = async () => {
     const res = await axios.get(
@@ -30,14 +36,30 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
     }
   }, [patient])
 
-  // constFindDoctor = () => {
-  //   const doctorDetails = allDoctors.find((doctor) => {
-  //     return doctor.id === parseInt(doctor.id)
-  //   })
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+    await axios.put(`${BASE_URL}/api/appointments${e.target.id}`, config, {
+      visit_reason: edit.visit_reason,
+      date: edit.date,
+      time: edit.time
+    })
+    setEdit(...edit)
+    setPatientAppts(...patientAppts)
+  }
 
-  // const patientDetails = allPatients.find((doctor) => {
-  //   return patient.id === parseInt(patient.id)
-  // })
+  const update = () => {
+    setUpdated(true)
+  }
+
+  const handleChange = (e) => {
+    setEdit({ ...edit, [e.target.id]: e.target.value })
+  }
 
   return (
     <div>
@@ -56,7 +78,36 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
           >
             Cancel Appointment
           </button>
-          <button>Edit Appointment Details</button>
+          <div>
+            <button onClick={update}>Update Appointment Details</button>
+            {updated && (
+              <form onSubmit={handleSubmit}>
+                <label>Reason For Visit:</label>
+                <input
+                  type="visit_reason"
+                  name="visit_reason"
+                  value={edit.visit_reason}
+                  onChange={handleChange}
+            ></input>
+                <label>Preferred Date:</label>
+                <input
+                  type="date"
+                  name="date"
+                  value={edit.date}
+                  onChange={handleChange}
+                ></input>
+                <label>Preferred Time:</label>
+                <input
+                  type="time"
+                  name="time"
+                  value={edit.time}
+                  onChange={handleChange}
+                ></input>
+                <button id={patientAppts[index]?.id}
+            onClick={(e) => handleSubmit(e)} type="submit">Update</button>
+              </form>
+            )}
+          </div>
         </div>
       ))}
     </div>
