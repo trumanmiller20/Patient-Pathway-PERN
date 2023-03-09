@@ -37,8 +37,12 @@ const PatientProfile = ({
         </button>
       </div>
       <div className="upcominginfo">
-        <ApptCard patient={patient} />
-        {/* <Link to="/makeappt">New Appointment</Link> */}
+        <ApptCard
+          patient={patient}
+          allAppointments={allAppointments}
+          allDoctors={allDoctors}
+          allPatients={allPatients}
+        />
         <br></br>
       </div>
     </div>

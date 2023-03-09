@@ -4,7 +4,7 @@ import axios from 'axios'
 import { BASE_URL } from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-const DocProfile = ({ allDoctors, patient }) => {
+const DocProfile = ({ patient, allDoctors }) => {
   let navigate = useNavigate()
   const initialState = { visit_reason: '', date: '', time: '' }
 
@@ -22,7 +22,7 @@ const DocProfile = ({ allDoctors, patient }) => {
     e.preventDefault()
     setApptFormValues({ ...apptFormValues, [e.target.name]: e.target.value })
   }
-  console.log(patient)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const token = localStorage.getItem('token')
@@ -33,7 +33,13 @@ const DocProfile = ({ allDoctors, patient }) => {
     }
     await axios.post(
       `${BASE_URL}/api/appointments/patient/${patient.id}/doctor/${doctor_id}`,
-      apptFormValues,
+      {
+        doctor_id,
+        patient_id: patient.id,
+        date: apptFormValues.date,
+        time: apptFormValues.time,
+        visit_reason: apptFormValues.visit_reason
+      },
       config
     )
 
@@ -43,7 +49,7 @@ const DocProfile = ({ allDoctors, patient }) => {
 
   useEffect(() => {
     setDoctors(doctorDetails)
-  }, [allDoctors])
+  }, [])
 
   return (
     <div className="doctordetailssection">
@@ -52,16 +58,16 @@ const DocProfile = ({ allDoctors, patient }) => {
           <div className="docinfo">
             <img
               className="detaildoctorpic"
-              src={doctors.profile_img}
+              src={doctors?.profile_img}
               alt="doctorpic"
             />
             <p>
-              Dr. {doctors.firstName} {doctors.lastName}
+              Dr. {doctors?.firstName} {doctors?.lastName}
             </p>
-            <p>{doctors.specialty}</p>
-            <p>{doctors.clinicName}</p>
-            <p>{doctors.state}</p>
-            <p>{doctors.network}</p>
+            <p>{doctors?.specialty}</p>
+            <p>{doctors?.clinicName}</p>
+            <p>{doctors?.state}</p>
+            <p>{doctors?.network}</p>
           </div>
           <div className="apptinfo">
             <button onClick={() => setApptShow(false)}>

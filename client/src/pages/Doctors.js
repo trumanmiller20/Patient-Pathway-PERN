@@ -7,6 +7,7 @@ import Search from '../components/Search'
 import Patient from '../services/api'
 
 const Doctors = ({ allDoctors }) => {
+
   console.log(allDoctors)
 
   const [doctors, setDoctors] = useState([])
@@ -83,7 +84,7 @@ const Doctors = ({ allDoctors }) => {
         <div className="doctors">
           <div className="search">K</div>
           <div className="doctorlist">
-            {allDoctors.map((doctor) => (
+            {allDoctors?.map((doctor) => (
               <DocCard
                 key={doctor.id}
                 id={doctor.id}

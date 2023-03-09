@@ -4,12 +4,12 @@ import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import SignIn from './components/SignIn'
 import Register from './components/Register'
-import MakeAppt from './pages/MakeAppt'
 import Welcome from './pages/Welcome'
 import PatientProfile from './pages/PatientProfile'
 import About from './pages/About'
 import Doctors from './pages/Doctors'
 import DocProfile from './pages/DocProfile'
+import EditAppt from './components/EditAppt'
 import { CheckSession } from './services/Auth'
 import axios from 'axios'
 import Patient from './services/api'
@@ -25,7 +25,7 @@ const App = () => {
 
   const [allAppointments, setAllAppointments] = useState(null)
 
-  const [allDoctors, setAllDoctors] = useState({})
+  const [allDoctors, setAllDoctors] = useState([])
 
   const [showing, setShowing] = useState(false)
 
@@ -61,8 +61,8 @@ const App = () => {
     if (token) {
       checkToken()
     }
-    GetPatients()
     GetDoctors()
+    GetPatients()
     GetAppointments()
   }, [])
 
@@ -103,12 +103,6 @@ const App = () => {
           }
         ></Route>
         <Route
-          path="/makeappt"
-          element={
-            <MakeAppt allPatients={allPatients} allDoctors={allDoctors} />
-          }
-        ></Route>
-        <Route
           path="/doctors"
           element={<Doctors patient={patient} allDoctors={allDoctors} />}
         ></Route>
@@ -116,6 +110,16 @@ const App = () => {
           path="/doctors/:doctor_id"
           element={
             <DocProfile
+              allPatients={allPatients}
+              patient={patient}
+              allDoctors={allDoctors}
+            />
+          }
+        ></Route>
+        <Route
+          path="/update/:id"
+          element={
+            <EditAppt
               allPatients={allPatients}
               patient={patient}
               allDoctors={allDoctors}
