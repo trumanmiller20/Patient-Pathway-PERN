@@ -4,7 +4,8 @@ import axios from 'axios'
 import { BASE_URL } from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-const DocProfile = ({ allDoctors, patient }) => {
+const DocProfile = ({ patient }) => {
+  const allDoctors = JSON.parse(localStorage.allDocs)
   let navigate = useNavigate()
   const initialState = { visit_reason: '', date: '', time: '' }
 
@@ -17,12 +18,13 @@ const DocProfile = ({ allDoctors, patient }) => {
   const doctorDetails = allDoctors.find((doctor) => {
     return doctor.id === parseInt(doctor_id)
   })
-
+  const storeDetails = () => {
+    localStorage.setItem('thisDoc', JSON.stringify(doctorDetails))
+  }
   const handleChange = (e) => {
     e.preventDefault()
     setApptFormValues({ ...apptFormValues, [e.target.name]: e.target.value })
   }
-  console.log(patient)
   const handleSubmit = async (e) => {
     e.preventDefault()
     const token = localStorage.getItem('token')
@@ -43,7 +45,8 @@ const DocProfile = ({ allDoctors, patient }) => {
 
   useEffect(() => {
     setDoctors(doctorDetails)
-  }, [allDoctors])
+    storeDetails()
+  }, [])
 
   return (
     <div className="doctordetailssection">
