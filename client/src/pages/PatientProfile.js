@@ -19,6 +19,7 @@ const PatientProfile = ({
       `${BASE_URL}/api/patients/details/${patient.id}`
     )
     setThisPatient(res.data)
+    localStorage.setItem('thisAppt', JSON.stringify(res.data))
   }
 
   useEffect(() => {

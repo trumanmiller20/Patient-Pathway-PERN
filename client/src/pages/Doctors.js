@@ -4,8 +4,8 @@
 // import { BASE_URL } from '../services/api'
 import DocCard from '../components/DocCard'
 
-const Doctors = ({ allDoctors }) => {
-  console.log(allDoctors)
+const Doctors = () => {
+  const allDoctors = JSON.parse(localStorage.allDocs)
   return (
     <div className="doctors">
       <div className="search">Search Functionality goes here</div>

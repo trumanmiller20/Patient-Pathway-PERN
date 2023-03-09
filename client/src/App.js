@@ -36,11 +36,13 @@ const App = () => {
   const GetDoctors = async () => {
     const res = await axios.get(`${BASE_URL}/api/doctors`)
     setAllDoctors(res.data)
+    localStorage.setItem('allDocs', JSON.stringify(res.data))
   }
 
   const GetAppointments = async () => {
     const res = await axios.get(`${BASE_URL}/api/appointments`)
     setAllAppointments(res.data)
+    localStorage.setItem('allAppts', JSON.stringify(res.data))
   }
 
   const checkToken = async () => {
@@ -60,8 +62,8 @@ const App = () => {
     if (token) {
       checkToken()
     }
-    GetPatients()
     GetDoctors()
+    GetPatients()
     GetAppointments()
   }, [])
 
