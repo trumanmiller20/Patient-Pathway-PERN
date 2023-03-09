@@ -25,12 +25,18 @@ const DocProfile = ({ allDoctors, patient }) => {
   console.log(patient)
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
     await axios.post(
       `${BASE_URL}/api/appointments/patient/${patient.id}/doctor/${doctor_id}`,
       apptFormValues,
-      console.log('sorethroat')
+      config
     )
-    console.log('pustule')
+
     setApptFormValues(initialState)
     navigate('/patient-profile')
   }
