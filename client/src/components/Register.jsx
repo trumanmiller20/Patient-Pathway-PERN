@@ -44,8 +44,11 @@ const Register = ({ showing, setShowing }) => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="firstName">First Name</label>
+            <label className="label" htmlFor="firstName">
+              First Name
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               name="firstName"
               type="text"
@@ -55,8 +58,11 @@ const Register = ({ showing, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="lastName">Last Name</label>
+            <label className="label" htmlFor="lastName">
+              Last Name
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               name="lastName"
               type="text"
@@ -66,8 +72,11 @@ const Register = ({ showing, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="profile_img">Profile Image</label>
+            <label className="label" htmlFor="profile_img">
+              Profile Image
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               name="profile_img"
               type="text"
@@ -77,8 +86,11 @@ const Register = ({ showing, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="insurance">Insurance</label>
+            <label className="label" htmlFor="insurance">
+              Insurance
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               name="insurance"
               type="text"
@@ -88,8 +100,11 @@ const Register = ({ showing, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="date_of_birth">Date of Birth</label>
+            <label className="label" htmlFor="date_of_birth">
+              Date of Birth
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               name="date_of_birth"
               type="text"
@@ -99,8 +114,11 @@ const Register = ({ showing, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="state">State</label>
+            <label className="label" htmlFor="state">
+              State
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               name="state"
               type="text"
@@ -110,8 +128,11 @@ const Register = ({ showing, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
+            <label className="label" htmlFor="email">
+              Email
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               name="email"
               type="email"
@@ -122,8 +143,11 @@ const Register = ({ showing, setShowing }) => {
           </div>
 
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
+            <label className="label" htmlFor="password">
+              Password
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               type="password"
               name="password"
@@ -132,8 +156,11 @@ const Register = ({ showing, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label className="label" htmlFor="confirmPassword">
+              Confirm Password
+            </label>
             <input
+              className="reg"
               onChange={handleChange}
               type="password"
               name="confirmPassword"
@@ -141,18 +168,25 @@ const Register = ({ showing, setShowing }) => {
               required
             />
           </div>
-          <button
-            disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
-            }
-          >
-            Sign In
-          </button>
-          <button className="switchbtn" onClick={() => setShowing(false)}>
-            Already have an account? Click here to Sign In!
-          </button>
+          <div className="signbuttons">
+            <button
+              className="signinbtn"
+              disabled={
+                !formValues.email ||
+                (!formValues.password &&
+                  formValues.confirmPassword === formValues.password)
+              }
+            >
+              Sign In
+            </button>
+            <p className="account">
+              Already have an account? Click{' '}
+              <button className="switchbtn" onClick={() => setShowing(false)}>
+                here
+              </button>{' '}
+              to Sign In!
+            </p>
+          </div>
         </form>
       </div>
     </div>

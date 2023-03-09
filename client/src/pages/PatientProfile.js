@@ -30,15 +30,17 @@ const PatientProfile = ({
   return (
     <div className="patientprofile">
       <div className="welcomesection">
-        <h2>Welcome Back {thisPatient?.firstName}!</h2>
+        <h2 className="welcomep">Welcome Back {thisPatient?.firstName}!</h2>
         <PatientInfo thisPatient={thisPatient} />
+        <button className="signinbtn" onClick={handleLogOut}>
+          Sign Out
+        </button>
       </div>
       <div className="upcominginfo">
         <ApptCard patient={patient} />
-        <Link to="/makeappt">New Appointment</Link>
+        {/* <Link to="/makeappt">New Appointment</Link> */}
         <br></br>
       </div>
-      <button onClick={handleLogOut}>Sign Out</button>
     </div>
   )
 }
