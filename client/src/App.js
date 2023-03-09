@@ -110,12 +110,16 @@ const App = () => {
         ></Route>
         <Route
           path="/doctors"
-          element={<Doctors allDoctors={allDoctors} />}
+          element={<Doctors patient={patient} allDoctors={allDoctors} />}
         ></Route>
         <Route
           path="/doctors/:doctor_id"
           element={
-            <DocProfile allPatients={allPatients} allDoctors={allDoctors} />
+            <DocProfile
+              allPatients={allPatients}
+              patient={patient}
+              allDoctors={allDoctors}
+            />
           }
         ></Route>
       </Routes>

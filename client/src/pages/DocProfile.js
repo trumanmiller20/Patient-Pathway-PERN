@@ -1,8 +1,15 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../services/api'
+import { useNavigate } from 'react-router-dom'
 
-const DocProfile = ({ allDoctors }) => {
+const DocProfile = ({ allDoctors, patient }) => {
+  let navigate = useNavigate()
+  const initialState = { visit_reason: '', date: '', time: '' }
+
   const [apptShow, setApptShow] = useState(true)
+  const [apptFormValues, setApptFormValues] = useState(initialState)
 
   let { doctor_id } = useParams()
   const [doctors, setDoctors] = useState({})
@@ -10,6 +17,23 @@ const DocProfile = ({ allDoctors }) => {
   const doctorDetails = allDoctors.find((doctor) => {
     return doctor.id === parseInt(doctor_id)
   })
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    setApptFormValues({ ...apptFormValues, [e.target.name]: e.target.value })
+  }
+  console.log(patient)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await axios.post(
+      `${BASE_URL}/api/appointments/patient/${patient.id}/doctor/${doctor_id}`,
+      apptFormValues,
+      console.log('sorethroat')
+    )
+    console.log('pustule')
+    setApptFormValues(initialState)
+    navigate('/patient-profile')
+  }
 
   useEffect(() => {
     setDoctors(doctorDetails)
@@ -45,17 +69,30 @@ const DocProfile = ({ allDoctors }) => {
           <p>
             Make an Appointment with Dr. {doctors.firstName} {doctors.lastName};
           </p>
-          <form className="apptform">
+          <form className="apptform" onSubmit={handleSubmit}>
             <label>Reason For Visit</label>
-            <input></input>
+            <input
+              type="visit_reason"
+              name="visit_reason"
+              value={apptFormValues.visit_reason}
+              onChange={handleChange}
+            ></input>
             <label>Preferred Date</label>
-            <input></input>
+            <input
+              type="date"
+              name="date"
+              value={apptFormValues.date}
+              onChange={handleChange}
+            ></input>
             <label>Preferred Time</label>
-            <input></input>
-            <label>Comments</label>
-            <input></input>
+            <input
+              type="time"
+              name="time"
+              value={apptFormValues.time}
+              onChange={handleChange}
+            ></input>
+            <button type="submit">Submit</button>
           </form>
-          <button>Submit</button>
           <button onClick={() => setApptShow(true)}>Cancel</button>
         </div>
       )}
