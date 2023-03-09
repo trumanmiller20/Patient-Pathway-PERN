@@ -1,35 +1,207 @@
 #root {
-  margin: 0;
-  background-color: rgb(199, 197, 197);
+  /* margin: 0; */
+  /* background-color: rgb(199, 197, 197); */
 }
 
 .App {
   text-align: center;
 }
 
+/* .signinform {
+background-color: white;
+} */
 
 .navsection{
   background-color: rgba(0, 170, 170, 0.504);
   padding: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  gap: 30px;
+ 
 }
+
+.navprofile {
+  color:rgba(218, 0, 44, 0.697);
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+ 
+  /* border: 2px solid rgba(218, 0, 44, 0.564);
+  padding: 10px;
+  border-radius: 10px; */
+}
+
+.navdoctor {
+  color:rgba(218, 0, 44, 0.697);
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+}
+
+.navabout {
+  color:rgba(218, 0, 44, 0.697);
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+}
+
+.welcome {
+  font-family: 'Rubik', sans-serif;
+  font-size: 50px;
+  color: rgba(220, 20, 60, 0.564);
+}
+
+.description {
+  font-family: 'Rubik', sans-serif;
+  font-size: 35px;
+
+  color: rgba(220, 20, 60, 0.564);
+}
+
+.col {
+  margin: 100px;
+}
+.input-wrapper {
+  /* margin: 10px; */
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-family: 'Rubik', sans-serif;
+  color:rgba(0, 170, 170, 0.504);
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px;
+  text-align: center;
+}
+
+.reg {
+  margin-left: 45px;
+font-family: 'Rubik', sans-serif;
+background-color: rgb(233, 249, 249);
+color: rgba(0, 170, 170, 0.504);
+border: 2px solid rgba(0, 170, 170, 0.504);
+font-weight: bold;
+}
+
+.who {
+margin: 50px auto;
+font-family: 'Rubik', sans-serif;
+border: 5px solid rgba(0, 170, 170, 0.504);
+border-radius: 5px;
+padding: 25px;
+width: 632px;
+height: 475px;
+}
+
+.whoo {
+  font-family: 'Rubik', sans-serif;
+  color:rgba(134, 0, 27, 0.801);
+  line-height: 1.5;
+  text-align: center;
+  padding: 15px;
+}
+
+.emailinput {
+font-family: 'Rubik', sans-serif;
+background-color: rgb(233, 249, 249);
+color: rgba(0, 170, 170, 0.504);
+border: 2px solid rgba(0, 170, 170, 0.504);
+font-weight: bold;
+}
+
+.passwordinput {
+  font-family: 'Rubik', sans-serif;
+  background-color: rgb(233, 249, 249);
+color: rgba(0, 170, 170, 0.504);
+border: 2px solid rgba(0, 170, 170, 0.504);
+font-weight: bold;
+}
+
+.signbuttons {
+  padding: 30px;
+}
+
+.signinbtn {
+background-color: rgb(233, 249, 249);
+color: rgba(0, 170, 170, 0.809);
+font-weight: bold;
+padding: 4px;
+border: 2px solid rgba(0, 170, 170, 0.504);
+border-radius: 5px;
+cursor: pointer;
+}
+
+.account {
+  font-family: 'Rubik', sans-serif;
+  color:rgba(220, 20, 60, 0.564);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  /* margin-right: 70px; */
+}
+.switchbtn {
+  background-color: rgba(233, 249, 249, 0.747);
+  margin: 5px;
+  color: rgba(0, 170, 170, 0.809);
+  font-weight: bold;
+  padding: 4px;
+  border: 2px solid rgba(0, 170, 170, 0.504);
+  border-radius: 5px;
+  width: 50px;
+  cursor: pointer;
+}
+
 
 .patientprofile {
   margin: 10px 20px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  
+}
+
+.welcomesection {
+  /* background-color: rgb(233, 249, 249); */
+  background-color:rgba(255, 105, 180, 0.277);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.welcomep {
+  font-family: 'Rubik', sans-serif;
+  color:rgba(218, 0, 44, 0.697);
+  font-weight: bold;
+  
 }
 
 .patientinfocontainer{
-  background-color:rgba(220, 20, 60, 0.564);
+  background-color:rgba(220, 20, 60, 0.32);
   margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .patientpic{
   width: 40%;
   height: 40%;
-  border: solid black 2px;
-  border-radius: 50px;
+  border: 4px solid rgba(0, 132, 132, 0.792);
+  border-radius: 80px;
+}
+
+.info {
+  font-family: 'Rubik', sans-serif;
+color: rgba(0, 132, 132, 0.792);
+font-weight: bold;
+padding: 5px;
+text-align: center;
+font-size: 18px;
 }
 
 .doctors{

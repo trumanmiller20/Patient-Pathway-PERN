@@ -27,8 +27,11 @@ const SignIn = ({ showing, setPatient, setShowing }) => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
+            <label className="label" htmlFor="email">
+              Email
+            </label>
             <input
+              className="emailinput"
               onChange={handleChange}
               name="email"
               type="email"
@@ -38,8 +41,11 @@ const SignIn = ({ showing, setPatient, setShowing }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
+            <label className="label" htmlFor="password">
+              Password
+            </label>
             <input
+              className="passwordinput"
               onChange={handleChange}
               type="password"
               name="password"
@@ -47,12 +53,21 @@ const SignIn = ({ showing, setPatient, setShowing }) => {
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
-            Sign In
-          </button>
-          <button className="switchbtn" onClick={() => setShowing(true)}>
-            Don't have an account? Click here to make one!
-          </button>
+          <div className="signbuttons">
+            <button
+              className="signinbtn"
+              disabled={!formValues.email || !formValues.password}
+            >
+              Sign In
+            </button>
+            <p className="account">
+              Don't have an account? Click{' '}
+              <button className="switchbtn" onClick={() => setShowing(true)}>
+                here
+              </button>
+              to make one!
+            </p>
+          </div>
         </form>
       </div>
     </div>

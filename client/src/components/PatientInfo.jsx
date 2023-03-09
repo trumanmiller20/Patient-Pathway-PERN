@@ -7,12 +7,13 @@ const PatientInfo = ({ thisPatient }) => {
           src={thisPatient?.profile_img}
           alt="patient pic"
         />
-        <div className="patientname">
+        <div className="info">
+          Name:
           {thisPatient?.firstName} {thisPatient?.lastName}
         </div>
-        <div className="insurance">Insurance: {thisPatient?.insurance}</div>
-        <div className="DOB">Date of Birth: {thisPatient?.date_of_birth}</div>
-        <div className="state">State: {thisPatient?.state}</div>
+        <div className="info">Insurance: {thisPatient?.insurance}</div>
+        <div className="info">Date of Birth: {thisPatient?.date_of_birth}</div>
+        <div className="info">State: {thisPatient?.state}</div>
       </div>
     </div>
   )
