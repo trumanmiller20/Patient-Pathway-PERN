@@ -6,7 +6,7 @@ import EditAppt from './EditAppt'
 
 const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
   let navigate = useNavigate()
-  const [patientAppts, setPatientAppts] = useState({})
+  const [patientAppts, setPatientAppts] = useState([])
 
 
   const getAppointmentsByPatient = async () => {
@@ -26,6 +26,7 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
       }
     }
     await axios.delete(`${BASE_URL}/api/appointments/${e.target.id}`, config)
+    getAppointmentsByPatient()
   }
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
 
 return (
     <div>
-      {allAppointments?.map((appt, index) => (
+      {patientAppts?.map((appt, index) => (
         <div key={index}>
           <p>
             {patientAppts[index]?.doctors.firstName}{' '}
@@ -45,6 +46,7 @@ return (
           <p>{patientAppts[index]?.doctors.clinicName}</p>
           <p>{patientAppts[index]?.date}</p>
           <p>{patientAppts[index]?.time}</p>
+          <p>{patientAppts[index]?.visit_reason}</p>
           <button
             id={patientAppts[index]?.id}
             onClick={(e) => cancelAppointment(e)}
