@@ -34,7 +34,7 @@ const PatientProfile = ({
         <PatientInfo thisPatient={thisPatient} />
       </div>
       <div className="upcominginfo">
-        <ApptCard />
+        <ApptCard patient={patient} />
         <Link to="/makeappt">New Appointment</Link>
         <br></br>
       </div>
