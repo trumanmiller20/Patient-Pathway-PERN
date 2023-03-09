@@ -19,7 +19,6 @@ const PatientProfile = ({
       `${BASE_URL}/api/patients/details/${patient.id}`
     )
     setThisPatient(res.data)
-    localStorage.setItem('thisAppt', JSON.stringify(res.data))
   }
 
   useEffect(() => {
@@ -38,7 +37,7 @@ const PatientProfile = ({
         <ApptCard
           patient={patient}
           allAppointments={allAppointments}
-          allDoctor={allDoctors}
+          allDoctors={allDoctors}
           allPatients={allPatients}
         />
         <br></br>

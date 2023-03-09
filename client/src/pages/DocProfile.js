@@ -4,8 +4,7 @@ import axios from 'axios'
 import { BASE_URL } from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-const DocProfile = ({ patient }) => {
-  const allDoctors = JSON.parse(localStorage.allDocs)
+const DocProfile = ({ patient, allDoctors }) => {
   let navigate = useNavigate()
   const initialState = { visit_reason: '', date: '', time: '' }
 
@@ -18,9 +17,7 @@ const DocProfile = ({ patient }) => {
   const doctorDetails = allDoctors.find((doctor) => {
     return doctor.id === parseInt(doctor_id)
   })
-  const storeDetails = () => {
-    localStorage.setItem('thisDoc', JSON.stringify(doctorDetails))
-  }
+
   const handleChange = (e) => {
     e.preventDefault()
     setApptFormValues({ ...apptFormValues, [e.target.name]: e.target.value })
@@ -52,7 +49,6 @@ const DocProfile = ({ patient }) => {
 
   useEffect(() => {
     setDoctors(doctorDetails)
-    storeDetails()
   }, [])
 
   return (
@@ -62,16 +58,16 @@ const DocProfile = ({ patient }) => {
           <div className="docinfo">
             <img
               className="detaildoctorpic"
-              src={doctors.profile_img}
+              src={doctors?.profile_img}
               alt="doctorpic"
             />
             <p>
-              Dr. {doctors.firstName} {doctors.lastName}
+              Dr. {doctors?.firstName} {doctors?.lastName}
             </p>
-            <p>{doctors.specialty}</p>
-            <p>{doctors.clinicName}</p>
-            <p>{doctors.state}</p>
-            <p>{doctors.network}</p>
+            <p>{doctors?.specialty}</p>
+            <p>{doctors?.clinicName}</p>
+            <p>{doctors?.state}</p>
+            <p>{doctors?.network}</p>
           </div>
           <div className="apptinfo">
             <button onClick={() => setApptShow(false)}>
