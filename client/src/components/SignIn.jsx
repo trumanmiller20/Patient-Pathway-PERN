@@ -17,7 +17,6 @@ const SignIn = ({ showing, setPatient, setShowing }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInPatient(formValues)
-    console.log(payload)
     setFormValues(initialState)
     setPatient(payload)
     navigate('/patient-profile')

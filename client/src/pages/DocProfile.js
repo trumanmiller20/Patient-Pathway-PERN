@@ -22,7 +22,7 @@ const DocProfile = ({ allDoctors, patient }) => {
     e.preventDefault()
     setApptFormValues({ ...apptFormValues, [e.target.name]: e.target.value })
   }
-  console.log(patient)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const token = localStorage.getItem('token')
@@ -33,7 +33,13 @@ const DocProfile = ({ allDoctors, patient }) => {
     }
     await axios.post(
       `${BASE_URL}/api/appointments/patient/${patient.id}/doctor/${doctor_id}`,
-      apptFormValues,
+      {
+        doctor_id,
+        patient_id: patient.id,
+        date: apptFormValues.date,
+        time: apptFormValues.time,
+        visit_reason: apptFormValues.visit_reason
+      },
       config
     )
 
