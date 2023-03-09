@@ -24,7 +24,7 @@ const App = () => {
 
   const [allAppointments, setAllAppointments] = useState(null)
 
-  const [allDoctors, setAllDoctors] = useState({})
+  const [allDoctors, setAllDoctors] = useState([])
 
   const [showing, setShowing] = useState(false)
 
@@ -36,13 +36,11 @@ const App = () => {
   const GetDoctors = async () => {
     const res = await axios.get(`${BASE_URL}/api/doctors`)
     setAllDoctors(res.data)
-    localStorage.setItem('allDocs', JSON.stringify(res.data))
   }
 
   const GetAppointments = async () => {
     const res = await axios.get(`${BASE_URL}/api/appointments`)
     setAllAppointments(res.data)
-    localStorage.setItem('allAppts', JSON.stringify(res.data))
   }
 
   const checkToken = async () => {

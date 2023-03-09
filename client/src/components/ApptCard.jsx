@@ -6,11 +6,12 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
   const [patientAppts, setPatientAppts] = useState({})
 
   const getAppointmentsByPatient = async () => {
-    const res = await axios.get(`${BASE_URL}/api/appointments/${patient.id}/appointments`)
+    const res = await axios.get(
+      `${BASE_URL}/api/appointments/${patient.id}/appointments`
+    )
+    console.log(res.data)
     setPatientAppts(res.data)
   }
-
-
 
   const cancelAppointment = async (e) => {
     e.preventDefault()
@@ -21,12 +22,13 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
       }
     }
     await axios.delete(`${BASE_URL}/api/appointments/${e.target.id}`, config)
-    
   }
 
   useEffect(() => {
-    getAppointmentsByPatient()
-  },[])
+    if (patient) {
+      getAppointmentsByPatient()
+    }
+  }, [patient])
 
   // constFindDoctor = () => {
   //   const doctorDetails = allDoctors.find((doctor) => {
@@ -34,22 +36,29 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
   //   })
 
   // const patientDetails = allPatients.find((doctor) => {
-    //   return patient.id === parseInt(patient.id)
-    // })
-    
+  //   return patient.id === parseInt(patient.id)
+  // })
 
-    return (
-      <div>
-         {allAppointments.map((appt, index) => (
-          <div>
-            <p>{patientAppts[index].doctors.firstName} {patientAppts[index].doctors.lastName}</p>
-            <p>{patientAppts[index].doctors.clinicName}</p>
-            <p>{patientAppts[index].date}</p>
-            <p>{patientAppts[index].time}</p>
-            <button id={patientAppts[index].id} onClick={(e) => cancelAppointment(e)}>Cancel Appointment</button>
-            <button>Edit Appointment Details</button>
-           </div>
-        ))} 
+  return (
+    <div>
+      {allAppointments?.map((appt, index) => (
+        <div key={index}>
+          <p>
+            {patientAppts[index]?.doctors.firstName}{' '}
+            {patientAppts[index]?.doctors.lastName}
+          </p>
+          <p>{patientAppts[index]?.doctors.clinicName}</p>
+          <p>{patientAppts[index]?.date}</p>
+          <p>{patientAppts[index]?.time}</p>
+          <button
+            id={patientAppts[index]?.id}
+            onClick={(e) => cancelAppointment(e)}
+          >
+            Cancel Appointment
+          </button>
+          <button>Edit Appointment Details</button>
+        </div>
+      ))}
     </div>
   )
 }
