@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import SignIn from './components/SignIn'
 import Register from './components/Register'
-import MakeAppt from './pages/MakeAppt'
 import Welcome from './pages/Welcome'
 import PatientProfile from './pages/PatientProfile'
 import About from './pages/About'
@@ -102,12 +101,6 @@ const App = () => {
               allAppointments={allAppointments}
               // authenticated={authenticated}
             />
-          }
-        ></Route>
-        <Route
-          path="/makeappt"
-          element={
-            <MakeAppt allPatients={allPatients} allDoctors={allDoctors} />
           }
         ></Route>
         <Route
