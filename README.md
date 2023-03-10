@@ -11,6 +11,10 @@
 5. Future Updates
 6. Credits
 
+## **_Links:_**
+
+[Front End Repository](https://github.com/trumanmiller20/Patient-Pathway-PERN)
+
 [Back End Repository](https://github.com/trumanmiller20/Patient-Pathway-PERN-Backend)
 
 [Entity Relationship Diagram](https://drive.google.com/file/d/1dc2QBlzhGx3we0ETleQ6cqfRoTofMX_z/view?usp=sharing)
