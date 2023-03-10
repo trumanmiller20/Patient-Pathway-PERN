@@ -7,7 +7,6 @@ import Search from '../components/Search'
 import Patient from '../services/api'
 
 const Doctors = ({ allDoctors }) => {
-
   console.log(allDoctors)
 
   const [doctors, setDoctors] = useState([])
@@ -70,7 +69,7 @@ const Doctors = ({ allDoctors }) => {
           <h1 className="result">Search Results</h1>
           <section className="search-results container-grid">
             {searchResults.map((result) => (
-              <Link to={`/doctors/${result._id}`} key={result._id}>
+              <Link to={`/doctors/${result.id}`} key={result.id}>
                 {result.firstName}
                 {/* <button className="goBack" onClick={handleGoBack}>
                   Back to Home
@@ -78,6 +77,9 @@ const Doctors = ({ allDoctors }) => {
               </Link>
             ))}
           </section>
+          <div className="return">
+            <Link to="/doctors">Return To Doctors List</Link>
+          </div>
         </div>
       )}
       {!searched && (

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../services/api'
 
 const EditAppt = ({ patient }) => {
-  let navigate = Navigate
+  let navigate = useNavigate()
   let { id } = useParams()
 
   const [edit, setEdit] = useState({

@@ -8,7 +8,6 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
   let navigate = useNavigate()
   const [patientAppts, setPatientAppts] = useState([])
 
-
   const getAppointmentsByPatient = async () => {
     const res = await axios.get(
       `${BASE_URL}/api/appointments/${patient.id}/appointments`
@@ -35,25 +34,41 @@ const ApptCard = ({ patient, allAppointments, allDoctors, allPatients }) => {
     }
   }, [patient])
 
-return (
-    <div>
+  return (
+    <div className="apptcard">
       {patientAppts?.map((appt, index) => (
-        <div key={index}>
+        <div className="appt" key={index}>
           <p>
-            {patientAppts[index]?.doctors.firstName}{' '}
+            <span>Doctor:</span> {patientAppts[index]?.doctors.firstName}{' '}
             {patientAppts[index]?.doctors.lastName}
           </p>
-          <p>{patientAppts[index]?.doctors.clinicName}</p>
-          <p>{patientAppts[index]?.date}</p>
-          <p>{patientAppts[index]?.time}</p>
-          <p>{patientAppts[index]?.visit_reason}</p>
-          <button
-            id={patientAppts[index]?.id}
-            onClick={(e) => cancelAppointment(e)}
-          >
-            Cancel Appointment
-          </button>
-            <button onClick={() => navigate(`/update/${appt.id}`)}>Update Appointment Details</button>
+          <p>
+            <span>Clinic:</span> {patientAppts[index]?.doctors.clinicName}
+          </p>
+          <p>
+            <span>Date:</span> {patientAppts[index]?.date}
+          </p>
+          <p>
+            <span>Time:</span> {patientAppts[index]?.time}
+          </p>
+          <p>
+            <span>Reason of Visit:</span> {patientAppts[index]?.visit_reason}
+          </p>
+          <div className="buttons">
+            <button
+              className="signinbtn"
+              id={patientAppts[index]?.id}
+              onClick={(e) => cancelAppointment(e)}
+            >
+              Cancel
+            </button>
+            <button
+              className="signinbtn"
+              onClick={() => navigate(`/update/${appt.id}`)}
+            >
+              Update
+            </button>
+          </div>
         </div>
       ))}
     </div>
