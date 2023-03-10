@@ -39,14 +39,13 @@ return (
     <div>
       {patientAppts?.map((appt, index) => (
         <div key={index}>
-          <p>
-            {patientAppts[index]?.doctors.firstName}{' '}
+          <p>Doctor: {patientAppts[index]?.doctors.firstName}{' '}
             {patientAppts[index]?.doctors.lastName}
           </p>
-          <p>{patientAppts[index]?.doctors.clinicName}</p>
-          <p>{patientAppts[index]?.date}</p>
-          <p>{patientAppts[index]?.time}</p>
-          <p>{patientAppts[index]?.visit_reason}</p>
+          <p>Hospital: {patientAppts[index]?.doctors.clinicName}</p>
+          <p>Date: {patientAppts[index]?.date}</p>
+          <p>Time: {patientAppts[index]?.time}</p>
+          <p>Reason: {patientAppts[index]?.visit_reason}</p>
           <button
             id={patientAppts[index]?.id}
             onClick={(e) => cancelAppointment(e)}
