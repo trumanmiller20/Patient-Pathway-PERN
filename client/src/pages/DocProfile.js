@@ -64,17 +64,23 @@ const DocProfile = ({ patient, allDoctors }) => {
             <p>
               Dr. {doctors?.firstName} {doctors?.lastName}
             </p>
-            <p>{doctors?.specialty}</p>
-            <p>{doctors?.clinicName}</p>
-            <p>{doctors?.state}</p>
-            <p>{doctors?.network}</p>
+            <p>Specialty: {doctors?.specialty}</p>
+            <p>Clinic: {doctors?.clinicName}</p>
+            <p>State: {doctors?.state}</p>
+            <p>Network: {doctors?.network}</p>
+            {/* <div className="apptinfo"> */}
+            <p className="account">
+              Click{' '}
+              <button className="signinbtn" onClick={() => setApptShow(false)}>
+                Here
+              </button>{' '}
+              To Make An Appointment
+            </p>
+            <Link className="returntodoctors" to="/doctors">
+              Return To Doctors List
+            </Link>
           </div>
-          <div className="apptinfo">
-            <button onClick={() => setApptShow(false)}>
-              Click Here To Make An Appointment
-            </button>
-            <Link to="/doctors">Return To Doctors List</Link>
-          </div>
+          {/* </div> */}
         </div>
       ) : (
         <div>

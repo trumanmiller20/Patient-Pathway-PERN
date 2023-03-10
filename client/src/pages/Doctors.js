@@ -89,7 +89,9 @@ const Doctors = ({ allDoctors }) => {
             ))}
           </section>
           <div className="return">
-            <Link to="/doctors">Return To Doctors List</Link>
+            <Link className="returntodoctors" to="/doctors">
+              Return To Doctors List
+            </Link>
           </div>
         </div>
       )}

@@ -330,6 +330,14 @@ span {
 
 .return {
 margin: 20px;
+width: 100%;
+cursor: pointer;
+text-align: center;
+border: 2px solid;
+border-color: rgba(0, 132, 132, 0.792);
+border-radius: 5px;
+background-color: rgba(255, 105, 180, 0.335);
+padding: 10px;
 }
 
 
@@ -394,10 +402,11 @@ background-color:rgba(255, 105, 180, 0.335);
 }
 
 .detaildoctorpic{
-  width: 40%;
-  height: 40%;
-  border: solid black 2px;
+  width: 50%;
+  height: 50%;
+  border: 2px solid rgba(0, 132, 132, 0.792);
   border-radius: 50px;
+  margin-top: 25px;
 }
 
 
@@ -412,7 +421,7 @@ background-color:rgba(255, 105, 180, 0.335);
   justify-content: center;
   border: none;
   margin-top: 30px;
-  margin-right: 20px;
+  margin-left: 200px;
 }
 .searchInput {
 width: 300px;
@@ -448,4 +457,23 @@ border-bottom-right-radius: 10px;
 cursor: pointer;
 font-weight: bold;
 
+}
+
+.result {
+  font-family: 'Rubik', sans-serif;
+  font-size: 30px;
+  color: rgba(220, 20, 60, 0.564);
+}
+
+.doctorspecialty {
+  font-family: 'Rubik', sans-serif;
+  color: rgba(0, 132, 132, 0.792);
+  font-weight: bold;
+}
+
+.returntodoctors {
+  text-decoration: none;
+  font-family: 'Rubik', sans-serif;
+  color: rgba(0, 132, 132, 0.792);
+  font-weight: bold;
 }
