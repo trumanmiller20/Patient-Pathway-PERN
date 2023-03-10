@@ -69,7 +69,11 @@ const Doctors = ({ allDoctors }) => {
           <h1 className="result">Search Results</h1>
           <section className="search-results container-grid">
             {searchResults.map((result) => (
-              <Link to={`/doctors/${result.id}`}>
+              <Link
+                className="titlelink"
+                to={`/doctors/${result.id}`}
+                key={result.id}
+              >
                 <div className="doctorinfocontainer">
                   <img
                     className="doctorpic"
