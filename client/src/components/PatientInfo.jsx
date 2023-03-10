@@ -2,18 +2,32 @@ const PatientInfo = ({ thisPatient }) => {
   return (
     <div>
       <div className="patientinfocontainer">
-        <img
-          className="patientpic"
-          src={thisPatient?.profile_img}
-          alt="patient pic"
-        />
-        <div className="info">
-          Name:
-          {thisPatient?.firstName} {thisPatient?.lastName}
+        <p className="pp">
+          <i>Patient-Pathway Card</i>
+        </p>
+
+        <div class="img">
+          <img
+            className="patientpic"
+            src={thisPatient?.profile_img}
+            alt="patient pic"
+          />
         </div>
-        <div className="info">Insurance: {thisPatient?.insurance}</div>
-        <div className="info">Date of Birth: {thisPatient?.date_of_birth}</div>
-        <div className="info">State: {thisPatient?.state}</div>
+        <div className="person">
+          <div className="info">
+            <span>Name:</span>
+            {thisPatient?.firstName} {thisPatient?.lastName}
+          </div>
+          <div className="info">
+            <span>Insurance:</span> {thisPatient?.insurance}
+          </div>
+          <div className="info">
+            <span>Date of Birth:</span> {thisPatient?.date_of_birth}
+          </div>
+          <div className="info">
+            <span>State:</span> {thisPatient?.state}
+          </div>
+        </div>
       </div>
     </div>
   )

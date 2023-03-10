@@ -13,7 +13,7 @@ const DocProfile = ({ patient, allDoctors }) => {
 
   let { doctor_id } = useParams()
   const [doctors, setDoctors] = useState({})
-
+  console.log(doctor_id)
   const doctorDetails = allDoctors.find((doctor) => {
     return doctor.id === parseInt(doctor_id)
   })
@@ -79,7 +79,8 @@ const DocProfile = ({ patient, allDoctors }) => {
       ) : (
         <div>
           <p>
-            Make an Appointment with Dr. {doctors.firstName} {doctors.lastName};
+            Make an Appointment with Dr. {doctors?.firstName}{' '}
+            {doctors?.lastName};
           </p>
           <form className="apptform" onSubmit={handleSubmit}>
             <label>Reason For Visit</label>
