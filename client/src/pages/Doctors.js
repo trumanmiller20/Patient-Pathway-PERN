@@ -84,7 +84,6 @@ const Doctors = ({ allDoctors }) => {
       )}
       {!searched && (
         <div className="doctors">
-          <div className="search">K</div>
           <div className="doctorlist">
             {allDoctors?.map((doctor) => (
               <DocCard

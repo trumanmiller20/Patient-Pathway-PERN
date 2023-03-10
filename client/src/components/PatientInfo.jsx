@@ -2,11 +2,8 @@ const PatientInfo = ({ thisPatient }) => {
   return (
     <div>
       <div className="patientinfocontainer">
-        <p className="pp">
-          <i>Patient-Pathway Card</i>
-        </p>
 
-        <div class="img">
+        <div className="img">
           <img
             className="patientpic"
             src={thisPatient?.profile_img}
@@ -16,7 +13,7 @@ const PatientInfo = ({ thisPatient }) => {
         <div className="person">
           <div className="info">
             <span>Name:</span>
-            {thisPatient?.firstName} {thisPatient?.lastName}
+            {' '}{thisPatient?.firstName} {thisPatient?.lastName}
           </div>
           <div className="info">
             <span>Insurance:</span> {thisPatient?.insurance}
