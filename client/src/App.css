@@ -1,6 +1,7 @@
 #root {
-width: 100vw;
-height: 100vh;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .App {
@@ -21,13 +22,14 @@ body::before {
   content: "";
   background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.freepik.com%2Ffree-photo%2Fstethoscope-with-calendar-page-date-blue-background-doctor-appointment-medical-concept_293060-179.jpg&f=1&nofb=1&ipt=93081c1c846e330e1e87cad155b5334d664391c2bbd86687f3011e81fe1101bb&ipo=images');
   background-size: cover;
-  opacity: 0.2; /* change this value to your desired opacity */
+  background-attachment: fixed;
+  opacity: 0.2;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* make sure the pseudo-element is behind the body content */
+  z-index: -1;
 }
 
 
@@ -40,27 +42,7 @@ body::before {
  
 }
 
-.navprofile {
-  color:rgba(218, 0, 44, 0.697);
-  font-weight: bold;
-  font-size: 20px;
-  font-family: 'Rubik', sans-serif;
-  text-decoration: none;
- 
-  /* border: 2px solid rgba(218, 0, 44, 0.564);
-  padding: 10px;
-  border-radius: 10px; */
-}
-
-.navdoctor {
-  color:rgba(218, 0, 44, 0.697);
-  font-weight: bold;
-  font-size: 20px;
-  font-family: 'Rubik', sans-serif;
-  text-decoration: none;
-}
-
-.navabout {
+.navlink {
   color:rgba(218, 0, 44, 0.697);
   font-weight: bold;
   font-size: 20px;
@@ -256,7 +238,6 @@ cursor: pointer;
  padding: 20px;
 }
 
-
 .pp {
   font-size: 12px;
   padding: 1px;
@@ -340,7 +321,9 @@ span {
 .search{
   height: 10vh;
   width: 10vw;
-  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: row wrap; 
   margin: 10px;
   padding: 10px;
 }
@@ -349,23 +332,55 @@ span {
 margin: 20px;
 }
 
-.doctors{
+
+
+
+.doctorlist{
   display: flex;
-  justify-content: space-evenly
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin-top: 50px;
+ 
+    /* padding: 2em 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 320px);
+    grid-gap: 1em;
+    justify-content: center; */
+    
 }
 
 .doctorinfocontainer{
 background-color:rgba(255, 105, 180, 0.335);
   margin: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+  width: 200px;
+  height: 200px;
 }
 
-
+.doctorinfocontainer:hover {
+  opacity: 0.8;
+}
 
 .doctorpic{
-  width: 20%;
-  height: 20%;
-  border: solid black 2px;
+  width: 50%;
+  height: 50%;
+  border: 2px solid rgba(0, 132, 132, 0.792);
   border-radius: 50px;
+}
+
+.doctorname {
+  margin-top: 25px;
+ 
+  color: rgba(0, 132, 132, 0.792);
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+}
+
+.titlelink {
+  text-decoration: none;
 }
 
 .doctordetailssection{
@@ -383,4 +398,54 @@ background-color:rgba(255, 105, 180, 0.335);
   height: 40%;
   border: solid black 2px;
   border-radius: 50px;
+}
+
+
+
+.searching {
+  display: flex;
+  justify-content: center;
+}
+
+.searchDiv {
+  display: flex;
+  justify-content: center;
+  border: none;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+.searchInput {
+width: 300px;
+height: 30px;
+border: 2px solid rgba(0, 170, 170, 0.504);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+background-color: white;
+
+}
+input[type=text] {
+  color: rgba(0, 170, 170, 0.809);
+font-size: 20px;
+font-weight: bold;
+}
+
+::placeholder {
+  color: rgba(0, 170, 170, 0.809);
+  font-size: 15px;
+  padding: 8px;
+} 
+
+.searchButton {
+width: 100px;
+  height: 36px;
+  border: 2px solid rgba(0, 170, 170, 0.504);
+  background-color: rgb(233, 249, 249);
+  color: rgba(0, 170, 170, 0.809);
+  font-weight: bold;
+  font-size: 15px;
+  border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+cursor: pointer;
+font-weight: bold;
+
 }
