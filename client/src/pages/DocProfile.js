@@ -61,24 +61,35 @@ const DocProfile = ({ patient, allDoctors }) => {
               src={doctors?.profile_img}
               alt="doctorpic"
             />
-            <p>
-              Dr. {doctors?.firstName} {doctors?.lastName}
-            </p>
-            <p>Specialty: {doctors?.specialty}</p>
-            <p>Clinic: {doctors?.clinicName}</p>
-            <p>State: {doctors?.state}</p>
-            <p>Network: {doctors?.network}</p>
-            {/* <div className="apptinfo"> */}
-            <p className="account">
-              Click{' '}
-              <button className="signinbtn" onClick={() => setApptShow(false)}>
-                Here
-              </button>{' '}
-              To Make An Appointment
-            </p>
-            <Link className="returntodoctors" to="/doctors">
-              Return To Doctors List
-            </Link>
+            <div className="separate">
+              <div className="make">
+                <p>
+                  Dr. {doctors?.firstName} {doctors?.lastName}
+                </p>
+                <p>Specialty: {doctors?.specialty}</p>
+                <p>Clinic: {doctors?.clinicName}</p>
+                <p>State: {doctors?.state}</p>
+                <p>Network: {doctors?.network}</p>
+              </div>
+              {/* <div className="apptinfo"> */}
+              <div className="make">
+                <p className="account">
+                  Click{' '}
+                  <button
+                    className="signinbtn"
+                    onClick={() => setApptShow(false)}
+                  >
+                    Here
+                  </button>{' '}
+                  To Make An Appointment
+                </p>
+                <div className="return">
+                  <Link className="returntodoctors" to="/doctors">
+                    Return To Doctors List
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
           {/* </div> */}
         </div>
@@ -88,31 +99,48 @@ const DocProfile = ({ patient, allDoctors }) => {
             Make an Appointment with Dr. {doctors?.firstName}{' '}
             {doctors?.lastName};
           </p>
-          <form className="apptform" onSubmit={handleSubmit}>
-            <label>Reason For Visit</label>
-            <input
-              type="visit_reason"
-              name="visit_reason"
-              value={apptFormValues.visit_reason}
-              onChange={handleChange}
-            ></input>
-            <label>Preferred Date</label>
-            <input
-              type="date"
-              name="date"
-              value={apptFormValues.date}
-              onChange={handleChange}
-            ></input>
-            <label>Preferred Time</label>
-            <input
-              type="time"
-              name="time"
-              value={apptFormValues.time}
-              onChange={handleChange}
-            ></input>
-            <button type="submit">Submit</button>
-          </form>
-          <button onClick={() => setApptShow(true)}>Cancel</button>
+          <div className="alledit">
+            <form className="coledit" onSubmit={handleSubmit}>
+              <div className="editinput">
+                <label className="labele">Reason For Visit</label>
+                <input
+                  className="edit"
+                  type="visit_reason"
+                  name="visit_reason"
+                  value={apptFormValues.visit_reason}
+                  onChange={handleChange}
+                ></input>
+              </div>
+              <div className="editinput">
+                <label className="labele">Preferred Date</label>
+                <input
+                  className="edit"
+                  type="date"
+                  name="date"
+                  value={apptFormValues.date}
+                  onChange={handleChange}
+                ></input>
+              </div>
+              <div className="editinput">
+                <label className="labele">Preferred Time</label>
+                <input
+                  className="edit"
+                  type="time"
+                  name="time"
+                  value={apptFormValues.time}
+                  onChange={handleChange}
+                ></input>
+              </div>
+              <div className="bttns">
+                <button className="updatebtn" type="submit">
+                  Submit
+                </button>
+                <button className="updatebtn" onClick={() => setApptShow(true)}>
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
     </div>
