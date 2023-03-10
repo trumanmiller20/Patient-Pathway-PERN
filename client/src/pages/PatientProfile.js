@@ -37,6 +37,7 @@ const PatientProfile = ({
         </button>
       </div>
       <div className="upcominginfo">
+        <h3 className="apptheader">Your Upcoming Appointments</h3>
         <ApptCard
           patient={patient}
           allAppointments={allAppointments}

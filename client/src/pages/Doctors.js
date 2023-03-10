@@ -85,9 +85,6 @@ const Doctors = ({ allDoctors }) => {
                   </div>
                   <div className="doctorspecialty">{result.specialty}</div>
                 </div>
-                {/* <button className="goBack" onClick={handleGoBack}>
-                  Back to Home
-                </button> */}
               </Link>
             ))}
           </section>
