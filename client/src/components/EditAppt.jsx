@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../services/api'
 
 const EditAppt = ({ patient }) => {
-  let navigate = Navigate
+  let navigate = useNavigate()
   let { id } = useParams()
 
   const [edit, setEdit] = useState({
@@ -40,31 +40,44 @@ const EditAppt = ({ patient }) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Reason For Visit:</label>
-        <input
-          type="visit_reason"
-          name="visit_reason"
-          value={edit.visit_reason}
-          onChange={handleChange}
-        ></input>
-        <label>Preferred Date:</label>
-        <input
-          type="date"
-          name="date"
-          value={edit.date}
-          onChange={handleChange}
-        ></input>
-        <label>Preferred Time:</label>
-        <input
-          type="time"
-          name="time"
-          value={edit.time}
-          onChange={handleChange}
-        ></input>
-        <button onClick={(e) => handleSubmit(e)} type="submit">
-          Update
+    <div className="alledit">
+      <form className="coledit" onSubmit={handleSubmit}>
+        <div className="editinput">
+          <label className="labele">Reason For Visit:</label>
+          <input
+            className="edit"
+            type="visit_reason"
+            name="visit_reason"
+            value={edit.visit_reason}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div className="editinput">
+          <label className="labele">Updated Date:</label>
+          <input
+            className="edit"
+            type="date"
+            name="date"
+            value={edit.date}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div className="editinput">
+          <label className="labele">Updated Time:</label>
+          <input
+            className="edit"
+            type="time"
+            name="time"
+            value={edit.time}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <button
+          className="updatebtn"
+          onClick={(e) => handleSubmit(e)}
+          type="submit"
+        >
+          Update Appointment
         </button>
       </form>
     </div>
