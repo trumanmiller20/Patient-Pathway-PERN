@@ -6,7 +6,7 @@ const PatientInfo = ({ thisPatient }) => {
           <i>Patient-Pathway Card</i>
         </p>
 
-        <div class="img">
+        <div className="img">
           <img
             className="patientpic"
             src={thisPatient?.profile_img}
