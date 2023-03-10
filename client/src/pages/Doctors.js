@@ -69,11 +69,18 @@ const Doctors = ({ allDoctors }) => {
           <h1 className="result">Search Results</h1>
           <section className="search-results container-grid">
             {searchResults.map((result) => (
-              <Link to={`/doctors/${result.id}`} key={result.id}>
-                {result.firstName}
-                {/* <button className="goBack" onClick={handleGoBack}>
-                  Back to Home
-                </button> */}
+              <Link to={`/doctors/${result.id}`}>
+                <div className="doctorinfocontainer">
+                  <img
+                    className="doctorpic"
+                    src={result.profile_img}
+                    alt="doctor pic"
+                  />
+                  <div className="doctorname">
+                    Dr. {result.firstName} {result.lastName}
+                  </div>
+                  <div className="doctorspecialty">{result.specialty}</div>
+                </div>
               </Link>
             ))}
           </section>
@@ -84,7 +91,6 @@ const Doctors = ({ allDoctors }) => {
       )}
       {!searched && (
         <div className="doctors">
-          <div className="search">K</div>
           <div className="doctorlist">
             {allDoctors?.map((doctor) => (
               <DocCard

@@ -15,6 +15,7 @@ import axios from 'axios'
 import Patient from './services/api'
 import { BASE_URL } from './services/api'
 import { useNavigate } from 'react-router-dom'
+import FAQ from './pages/FAQ'
 
 const App = () => {
   let navigate = useNavigate()
@@ -81,6 +82,7 @@ const App = () => {
           }
         ></Route>
         <Route path="/about" element={<About />}></Route>
+        <Route path="/faq" element={<FAQ />}></Route>
         <Route
           path="/sign-in"
           element={<SignIn setPatient={setPatient} setShowing={setShowing} />}

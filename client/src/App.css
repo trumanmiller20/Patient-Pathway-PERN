@@ -1,6 +1,8 @@
 #root {
-  /* margin: 0; */
+  margin: 0;
   /* background-color: rgb(199, 197, 197); */
+  height: 100vh;
+  width: 100vw;
 }
 
 .App {
@@ -21,6 +23,7 @@ body::before {
   content: "";
   background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.freepik.com%2Ffree-photo%2Fstethoscope-with-calendar-page-date-blue-background-doctor-appointment-medical-concept_293060-179.jpg&f=1&nofb=1&ipt=93081c1c846e330e1e87cad155b5334d664391c2bbd86687f3011e81fe1101bb&ipo=images');
   background-size: cover;
+  background-attachment: fixed;
   opacity: 0.2; /* change this value to your desired opacity */
   position: absolute;
   top: 0;
@@ -40,27 +43,7 @@ body::before {
  
 }
 
-.navprofile {
-  color:rgba(218, 0, 44, 0.697);
-  font-weight: bold;
-  font-size: 20px;
-  font-family: 'Rubik', sans-serif;
-  text-decoration: none;
- 
-  /* border: 2px solid rgba(218, 0, 44, 0.564);
-  padding: 10px;
-  border-radius: 10px; */
-}
-
-.navdoctor {
-  color:rgba(218, 0, 44, 0.697);
-  font-weight: bold;
-  font-size: 20px;
-  font-family: 'Rubik', sans-serif;
-  text-decoration: none;
-}
-
-.navabout {
+.navlink {
   color:rgba(218, 0, 44, 0.697);
   font-weight: bold;
   font-size: 20px;
@@ -256,7 +239,6 @@ cursor: pointer;
  padding: 20px;
 }
 
-
 .pp {
   font-size: 12px;
   padding: 1px;
@@ -264,8 +246,8 @@ cursor: pointer;
 }
 
 .patientpic{
-  width: 25%;
-  height: 25%;
+  width: 100%;
+  height: 100%;
   border: 4px solid rgba(0, 132, 132, 0.792);
   border-radius: 20px;
  
@@ -273,7 +255,7 @@ cursor: pointer;
 
 .img{
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-right: 20px;
   padding: 5px;
 }
@@ -304,7 +286,19 @@ font-size: 20px;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
+  font-family: 'Rubik', sans-serif;
 }
+
+.apptheader {
+  background-color:rgba(255, 105, 180, 0.277);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-family: 'Rubik', sans-serif;
+  color:rgba(218, 0, 44, 0.697);
+}
+
 p {
   font-family: 'Rubik', sans-serif;
 color: rgba(0, 132, 132, 0.792);
@@ -322,7 +316,7 @@ span {
   margin-left: 15px;
   text-align: left;
   font-size: 18px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .search{
   height: 10vh;
